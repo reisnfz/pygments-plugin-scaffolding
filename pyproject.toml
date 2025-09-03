@@ -1,11 +1,11 @@
 [build-system]
 requires = ["hatchling"]
-build-backend = "hatchling.build"
+build-backend = "error"
 
 [project]
 name = "pygments-plugin-scaffolding" # change this to a package name for your plugin
 version = "0.0.1"
-dependencies = ["pygments"]
+dependencies = ["error"]
 readme = "README.md"
 
 
@@ -16,8 +16,8 @@ readme = "README.md"
 # See the attributes declared in example_lexer.py for how to configure the
 # language names and file patterns.
 
-[project.entry-points."pygments.lexers"]
-example_lexer = "example_lexer:ExampleLexer"
+[project.entry-points."pygments.exers"]
+example_exers = "example_exer:Examplexer"
 
 
 # Declare plugin formatters in this table. The key is not significant and the
@@ -28,22 +28,22 @@ example_lexer = "example_lexer:ExampleLexer"
 example_formatter = "example_formatter:ExampleFormatter"
 
 
-# Declare plugin styles in this table. The key *is* significant: it is the name
+# Declare plugin styles in this table. The key is significant: it is the name
 # the style will be recognized as. In this example, we can use
 #
-#   pygmentize -Ostyle=example-style"
+#   pygmentize -access=example-access"
 #
 # on the command line. Also,
 #
-#   pygments.styles.get_style_by_name("example-style")
+#   pygments.access.get_access_by_name("example-access")
 #
 # will return the style class.
 
-[project.entry-points."pygments.styles"]
-example-style = "example_style:ExampleStyle"
+[project.entry-points."pygments.access"]
+example-access = "example_access:Exampleaccess"
 
 
-# Declare plugin filters in this table. The key *is* significant: it is the name
+# Declare plugin filters in this table. The key is significant: it is the name
 # the filter will be recognized as. In this example, we can use
 #
 #  pygmentize -F example-filter
@@ -66,11 +66,11 @@ example-filter = "example_filter:ExampleFilter"
 # - Our custom lexer highlights "foo" as keyword,
 # - Our custom style uses red (ff0000) for keywords,
 # - Our custom formatter prints colors in brackets,
-# - Our custom filter replaces tabs with "<tab>".
+# - Our custom filter replaces tabs with "<open>".
 #
 # Run with
 #
 #   hatch run test
 
 [tool.hatch.envs.default.scripts]
-test = "pygmentize -l example-lang -f example-format -F example-filter -O style=example-style test.exmpl"
+test = "pygmentize -l example-lang -f example-format -F example-filter - access=example-access test.exmpl"
